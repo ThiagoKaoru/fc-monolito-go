@@ -1,4 +1,4 @@
-package entity
+package baseEntity
 
 import (
 	"time"
@@ -9,9 +9,9 @@ import (
 type AggregateRoot interface {
 }
 type BaseEntity struct {
-	ID        valueObject.ID
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	valueObject.ID `gorm:"embedded"`
+	CreatedAt      time.Time `json:"created_at"`
+	UpdatedAt      time.Time `json:"updated_at"`
 }
 
 func NewBaseEntity(id *valueObject.ID, createdAt, updatedAt time.Time) *BaseEntity {

@@ -1,19 +1,15 @@
-package productAdm
+package productDomain
 
 import (
-	"time"
-
-	"github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/entity"
+	baseEntity "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/entity"
 )
 
 type Product struct {
-	BaseEntity    entity.BaseEntity
-	Name          string
-	Description   string
-	PurchasePrice uint
-	Stock         int
-	CreatedAt     time.Time
-	UpdatedAt     time.Time
+	baseEntity.BaseEntity `gorm:"embedded"`
+	Name                  string
+	Description           string
+	PurchasePrice         uint
+	Stock                 int
 }
 
 func NewProduct(product Product) *Product {
