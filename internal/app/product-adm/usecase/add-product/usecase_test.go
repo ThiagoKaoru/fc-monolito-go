@@ -1,20 +1,22 @@
-package addproduct
+package addproduct_test
 
 import (
 	"testing"
 
-	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
+	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
+	"gorm.io/gorm"
 )
 
 func TestAddProduct(t *testing.T) {
 	tests := []struct {
 		name     string
-		input    *productDomain.Product
+		input    addproduct.AddProductInputDTO
 		expected bool
 		err      error
 	}{{
 		name: "should add a product",
-		input: &productDomain.Product{
+		input: addproduct.AddProductInputDTO{
 			Name:          "teste",
 			Description:   "teste",
 			PurchasePrice: 10,
@@ -26,7 +28,9 @@ func TestAddProduct(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			err := Add(*tt.input)
+			testRepository := repository.NewProductRepository(&gorm.DB{})
+			useCaseTest := addproduct.NewAddProductUseCase(testRepository)
+			err := useCaseTest.Execute(tt.input)
 			if (err != nil) != tt.expected {
 				t.Fatalf("AddProduct() error = %v, wantErr %v", err, tt.expected)
 			}

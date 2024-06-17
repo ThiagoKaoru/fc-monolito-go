@@ -2,26 +2,12 @@ package facade
 
 import (
 	"context"
+
+	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
+	findproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
 )
 
 type Facade interface {
-	addProduct(context.Context, AddProductFacadeInputDTO) error
-	checkStock(context.Context, CheckStockFacadeInputDTO) (CheckStockFacadeOutputDTO, error)
-}
-
-type AddProductFacadeInputDTO struct {
-	ID            *string
-	Name          string
-	Description   string
-	PurchasePrice uint16
-	Stock         uint16
-}
-
-type CheckStockFacadeInputDTO struct {
-	ProductId string
-}
-
-type CheckStockFacadeOutputDTO struct {
-	ProductId string
-	Stock     uint16
+	addProduct(context.Context, addproduct.AddProductInputDTO) error
+	checkStock(context.Context, findproduct.FindProductInputDTO) (findproduct.FindProductOutputDTO, error)
 }

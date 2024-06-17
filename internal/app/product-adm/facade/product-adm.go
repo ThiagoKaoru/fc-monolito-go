@@ -1,30 +1,30 @@
 package facade
 
 import (
-	"context"
-
+	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
+	findproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
 	"github.com/thiagokaoru/fc-monolito-go/internal/pkg/usecase"
 )
 
 type ProductAdmFacade struct {
-	addUseCase        usecase.UseCaseNoOutputInterface[AddProductFacadeInputDTO]
-	checkStockUseCase usecase.UseCaseInterface[CheckStockFacadeInputDTO, CheckStockFacadeOutputDTO]
+	addUseCase       usecase.UseCaseNoOutputInterface[addproduct.AddProductInputDTO]
+	findStockUseCase usecase.UseCaseInterface[findproduct.FindProductInputDTO, findproduct.FindProductOutputDTO]
 }
 
-func NewProductAdmFacade(addUseCase usecase.UseCaseNoOutputInterface[AddProductFacadeInputDTO], checkStockUseCase usecase.UseCaseInterface[CheckStockFacadeInputDTO, CheckStockFacadeOutputDTO]) *ProductAdmFacade {
+func NewProductAdmFacade(addUseCase usecase.UseCaseNoOutputInterface[addproduct.AddProductInputDTO], findStockUseCase usecase.UseCaseInterface[findproduct.FindProductInputDTO, findproduct.FindProductOutputDTO]) *ProductAdmFacade {
 	return &ProductAdmFacade{
-		addUseCase:        addUseCase,
-		checkStockUseCase: checkStockUseCase,
+		addUseCase:       addUseCase,
+		findStockUseCase: findStockUseCase,
 	}
 }
 
-func (f *ProductAdmFacade) AddProduct(ctx context.Context, input AddProductFacadeInputDTO) error {
-	err := f.addUseCase.Execute(ctx, input)
+func (f *ProductAdmFacade) AddProduct(input addproduct.AddProductInputDTO) error {
+	err := f.addUseCase.Execute(input)
 	return err
 }
 
-func (f *ProductAdmFacade) CheckStock(ctx context.Context, input CheckStockFacadeInputDTO) (*CheckStockFacadeOutputDTO, error) {
-	var output CheckStockFacadeOutputDTO
-	output, err := f.checkStockUseCase.Execute(ctx, input)
+func (f *ProductAdmFacade) FindStock(input findproduct.FindProductInputDTO) (*findproduct.FindProductOutputDTO, error) {
+	var output findproduct.FindProductOutputDTO
+	output, err := f.findStockUseCase.Execute(input)
 	return &output, err
 }
