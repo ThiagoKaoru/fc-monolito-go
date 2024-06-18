@@ -1,12 +1,12 @@
-package findproduct_test
+package productadm_usecase_test
 
 import (
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
-	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
-	findproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productadm_usecase "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
 	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -19,7 +19,7 @@ type FindProductSuite struct {
 
 func (s *FindProductSuite) SetupTest() {
 	s.db, _ = gorm.Open(sqlite.Open(":memory"), &gorm.Config{})
-	s.NoError(s.db.AutoMigrate(&findproduct.FindProductOutputDTO{}))
+	s.NoError(s.db.AutoMigrate(&productadm_usecase.FindProductOutputDTO{}))
 }
 
 func (s *FindProductSuite) TestFindProduct() {
@@ -33,8 +33,8 @@ func (s *FindProductSuite) TestFindProduct() {
 	product.ID = IdValueObject.NewID(uniqueID)
 
 	s.db.Create(&product)
-	repositoryProduct := repository.NewProductRepository(s.db)
-	result, err := findproduct.NewFindProductUseCase(repositoryProduct).Execute(findproduct.FindProductInputDTO{
+	repositoryProduct := productadm_repository.NewProductRepository(s.db)
+	result, err := productadm_usecase.NewFindProductUseCase(repositoryProduct).Execute(productadm_usecase.FindProductInputDTO{
 		ProductID: product.ID,
 	})
 

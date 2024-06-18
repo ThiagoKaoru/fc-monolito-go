@@ -1,11 +1,11 @@
-package facade_test
+package productadm_facade_test
 
 import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/factory"
-	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
-	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
+	productadm_factory "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/factory"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productadm_usecase "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -17,21 +17,21 @@ type ProductRepositorySuite struct {
 
 func (s *ProductRepositorySuite) SetupTest() {
 	s.db, _ = gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
-	s.NoError(s.db.AutoMigrate(&repository.Product{}))
+	s.NoError(s.db.AutoMigrate(&productadm_repository.Product{}))
 }
 
 func (s *ProductRepositorySuite) TestInsertAndVerifyProduct() {
-	product := addproduct.AddProductInputDTO{
+	product := productadm_usecase.AddProductInputDTO{
 		Name:          "Product 1",
 		Description:   "Product 1 description",
 		PurchasePrice: 100,
 		Stock:         10,
 	}
-	productFacade := factory.ProductAdmFacadeFactory(s.db)
+	productFacade := productadm_factory.ProductAdmFacadeFactory(s.db)
 	result := productFacade.AddProduct(product)
 	assert.NoError(s.T(), result)
 
-	var foundProduct addproduct.AddProductOutputDTO
+	var foundProduct productadm_usecase.AddProductOutputDTO
 	result = s.db.First(&foundProduct, "Name =?", product.Name).Error
 	assert.NoError(s.T(), result)
 	assert.Equal(s.T(), product.Name, foundProduct.Name)

@@ -1,18 +1,18 @@
-package addproduct
+package productadm_usecase
 
 import (
 	"github.com/google/uuid"
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
-	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
 	baseEntity "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/entity"
 	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
 )
 
 type AddProduct struct {
-	productRepository *repository.ProductRepository
+	productRepository *productadm_repository.ProductRepository
 }
 
-func NewAddProductUseCase(productRepository *repository.ProductRepository) *AddProduct {
+func NewAddProductUseCase(productRepository *productadm_repository.ProductRepository) *AddProduct {
 	return &AddProduct{
 		productRepository: productRepository,
 	}

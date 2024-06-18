@@ -1,14 +1,14 @@
-package findproduct
+package productadm_usecase
 
 import (
-	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
 )
 
 type FindProduct struct {
-	productRepository *repository.ProductRepository
+	productRepository *productadm_repository.ProductRepository
 }
 
-func NewFindProductUseCase(productRepository *repository.ProductRepository) *FindProduct {
+func NewFindProductUseCase(productRepository *productadm_repository.ProductRepository) *FindProduct {
 	return &FindProduct{
 		productRepository: productRepository,
 	}

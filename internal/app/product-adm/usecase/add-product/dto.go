@@ -1,4 +1,4 @@
-package addproduct
+package productadm_usecase
 
 import (
 	"time"

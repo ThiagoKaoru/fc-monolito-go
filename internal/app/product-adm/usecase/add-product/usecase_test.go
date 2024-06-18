@@ -1,9 +1,9 @@
-package addproduct_test
+package productadm_usecase_test
 
 import (
 	"testing"
 
-	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
 	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
 	"gorm.io/gorm"
 )
@@ -28,7 +28,7 @@ func TestAddProduct(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			testRepository := repository.NewProductRepository(&gorm.DB{})
+			testRepository := productadm_repository.NewProductRepository(&gorm.DB{})
 			useCaseTest := addproduct.NewAddProductUseCase(testRepository)
 			err := useCaseTest.Execute(tt.input)
 			if (err != nil) != tt.expected {
