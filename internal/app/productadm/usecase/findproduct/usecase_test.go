@@ -7,7 +7,7 @@ import (
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
 	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
 	productadm_usecase "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/findproduct"
-	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
+	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

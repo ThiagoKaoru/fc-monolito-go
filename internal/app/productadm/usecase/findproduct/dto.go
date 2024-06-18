@@ -1,6 +1,6 @@
 package productadm_usecase
 
-import IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
+import IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 
 type FindProductInputDTO struct {
 	ProductID IdValueObject.ID

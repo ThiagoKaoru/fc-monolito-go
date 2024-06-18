@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
-	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
+	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 	"gorm.io/gorm"
 )
 

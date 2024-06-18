@@ -3,7 +3,7 @@ package baseEntity
 import (
 	"time"
 
-	valueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
+	valueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 )
 
 type AggregateRoot interface {
