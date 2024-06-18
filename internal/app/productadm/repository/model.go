@@ -1,4 +1,4 @@
-package productadm_repository
+package productrepository
 
 import (
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"

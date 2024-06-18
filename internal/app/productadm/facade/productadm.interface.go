@@ -1,4 +1,4 @@
-package productadm_facade
+package productfacade
 
 import (
 	"context"

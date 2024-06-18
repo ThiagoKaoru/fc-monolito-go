@@ -1,4 +1,4 @@
-package productadm_usecase
+package productusecase
 
 import IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 

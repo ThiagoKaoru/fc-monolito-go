@@ -1,4 +1,4 @@
-package productadm_usecase_test
+package productusecase_test
 
 import (
 	"github.com/google/uuid"

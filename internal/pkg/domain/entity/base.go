@@ -6,8 +6,6 @@ import (
 	valueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 )
 
-type AggregateRoot interface {
-}
 type BaseEntity struct {
 	valueObject.ID `gorm:"embedded"`
 	CreatedAt      time.Time `json:"created_at"`

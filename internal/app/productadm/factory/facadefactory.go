@@ -1,4 +1,4 @@
-package productadm_factory
+package productfactory
 
 import (
 	productadm_facade "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/facade"

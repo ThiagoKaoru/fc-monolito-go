@@ -1,4 +1,4 @@
-package productadm_repository
+package productrepository
 
 import (
 	"errors"

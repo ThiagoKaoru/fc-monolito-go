@@ -1,4 +1,4 @@
-package productadm_facade_test
+package productfacade_test
 
 import (
 	"github.com/stretchr/testify/assert"

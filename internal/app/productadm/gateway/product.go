@@ -1,4 +1,4 @@
-package productGateway
+package productgateway
 
 import (
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"

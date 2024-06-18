@@ -1,4 +1,4 @@
-package productadm_domain
+package productdomain
 
 import (
 	baseEntity "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/entity"

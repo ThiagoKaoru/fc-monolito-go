@@ -1,4 +1,4 @@
-package productadm_repository
+package productrepository_test
 
 import (
 	"testing"
@@ -9,6 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
+	productrepository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
 	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/valueobject"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
@@ -21,7 +22,7 @@ type ProductRepositorySuite struct {
 
 func (s *ProductRepositorySuite) SetupTest() {
 	s.db, _ = gorm.Open(sqlite.Open(":memory:"), &gorm.Config{})
-	s.NoError(s.db.AutoMigrate(&Product{}))
+	s.NoError(s.db.AutoMigrate(&productrepository.Product{}))
 }
 
 func (s *ProductRepositorySuite) TestInsertAndVerifyProduct() {
@@ -34,10 +35,10 @@ func (s *ProductRepositorySuite) TestInsertAndVerifyProduct() {
 	uniqueID := uuid.New()
 	product.ID = IdValueObject.NewID(uniqueID)
 
-	result := NewProductRepository(s.db).Add(&product)
+	result := productrepository.NewProductRepository(s.db).Add(&product)
 	assert.NoError(s.T(), result)
 
-	var foundProduct Product
+	var foundProduct productrepository.Product
 	result = s.db.First(&foundProduct, "id =?", uniqueID).Error
 	assert.NoError(s.T(), result)
 	assert.Equal(s.T(), product.Name, foundProduct.Name)
@@ -58,7 +59,7 @@ func (s *ProductRepositorySuite) TestFindAProduct() {
 	err := s.db.Create(&product).Error
 	assert.NoError(s.T(), err)
 
-	result, err := NewProductRepository(s.db).Find(IdValueObject.ID{ID: uniqueID})
+	result, err := productrepository.NewProductRepository(s.db).Find(IdValueObject.ID{ID: uniqueID})
 	assert.NoError(s.T(), err)
 	assert.Equal(s.T(), product.Name, result.Name)
 	assert.Equal(s.T(), product.Description, result.Description)

@@ -1,4 +1,4 @@
-package productadm_usecase
+package productusecase
 
 import (
 	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"

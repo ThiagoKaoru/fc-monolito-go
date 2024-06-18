@@ -1,4 +1,4 @@
-package productadm_facade
+package productfacade
 
 import (
 	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/addproduct"
