@@ -1,10 +1,10 @@
 package productadm_factory
 
 import (
-	productadm_facade "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/facade"
-	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
-	productadm_usecase_add "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
-	productadm_usecase_find "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
+	productadm_facade "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/facade"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
+	productadm_usecase_add "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/addproduct"
+	productadm_usecase_find "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/findproduct"
 	"github.com/thiagokaoru/fc-monolito-go/internal/pkg/usecase"
 	"gorm.io/gorm"
 )

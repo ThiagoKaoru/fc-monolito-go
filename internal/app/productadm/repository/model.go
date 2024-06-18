@@ -1,7 +1,7 @@
 package productadm_repository
 
 import (
-	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
+	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
 )
 
 type Product struct {

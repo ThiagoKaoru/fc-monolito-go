@@ -3,9 +3,9 @@ package productadm_facade_test
 import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	productadm_factory "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/factory"
-	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
-	productadm_usecase "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
+	productadm_factory "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/factory"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
+	productadm_usecase "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/addproduct"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )

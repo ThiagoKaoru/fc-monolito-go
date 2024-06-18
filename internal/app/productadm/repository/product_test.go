@@ -8,7 +8,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
-	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
+	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
 	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

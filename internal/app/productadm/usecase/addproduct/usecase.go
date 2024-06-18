@@ -2,8 +2,8 @@ package productadm_usecase
 
 import (
 	"github.com/google/uuid"
-	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
-	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
 	baseEntity "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/entity"
 	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
 )

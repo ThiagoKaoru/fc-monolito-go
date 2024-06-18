@@ -3,7 +3,7 @@ package productadm_repository
 import (
 	"errors"
 
-	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/domain"
+	productDomain "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/domain"
 	IdValueObject "github.com/thiagokaoru/fc-monolito-go/internal/pkg/domain/value-object"
 	"gorm.io/gorm"
 )

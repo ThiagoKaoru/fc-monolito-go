@@ -1,7 +1,7 @@
 package productadm_usecase
 
 import (
-	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
 )
 
 type FindProduct struct {

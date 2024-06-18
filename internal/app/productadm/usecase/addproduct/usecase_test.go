@@ -3,8 +3,8 @@ package productadm_usecase_test
 import (
 	"testing"
 
-	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
-	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
+	productadm_repository "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/repository"
+	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/addproduct"
 	"gorm.io/gorm"
 )
 

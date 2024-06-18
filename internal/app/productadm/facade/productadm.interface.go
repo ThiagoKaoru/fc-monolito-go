@@ -3,8 +3,8 @@ package productadm_facade
 import (
 	"context"
 
-	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
-	findproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
+	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/addproduct"
+	findproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/productadm/usecase/findproduct"
 )
 
 type Facade interface {
