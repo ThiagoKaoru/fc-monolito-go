@@ -1,12 +1,11 @@
-package facade
+package facade_test
 
 import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
+	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/factory"
 	"github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/repository"
 	addproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/add-product"
-	findproduct "github.com/thiagokaoru/fc-monolito-go/internal/app/product-adm/usecase/find-product"
-	"github.com/thiagokaoru/fc-monolito-go/internal/pkg/usecase"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
@@ -28,16 +27,7 @@ func (s *ProductRepositorySuite) TestInsertAndVerifyProduct() {
 		PurchasePrice: 100,
 		Stock:         10,
 	}
-
-	productRepository := repository.NewProductRepository(s.db)
-
-	productAddUseCase := addproduct.NewAddProductUseCase(productRepository)
-	productFindUseCase := findproduct.NewFindProductUseCase(productRepository)
-
-	productFacade := NewProductAdmFacade(
-		usecase.UseCaseNoOutputInterface[addproduct.AddProductInputDTO](productAddUseCase),
-		usecase.UseCaseInterface[findproduct.FindProductInputDTO, findproduct.FindProductOutputDTO](productFindUseCase),
-	)
+	productFacade := factory.ProductAdmFacadeFactory(s.db)
 	result := productFacade.AddProduct(product)
 	assert.NoError(s.T(), result)
 
